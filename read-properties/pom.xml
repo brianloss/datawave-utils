@@ -86,4 +86,59 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <!-- The dist profile (activated with -Ddist) triggers building of source and javadoc artifacts, as well as the docs module. -->
+        <profile>
+            <id>dist</id>
+            <activation>
+                <property>
+                    <name>dist</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <executions>
+                            <!-- build javadoc jars per module for publishing to the repo -->
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <tags>
+                                        <tag>
+                                            <name>goal</name>
+                                        </tag>
+                                        <tag>
+                                            <name>phase</name>
+                                        </tag>
+                                        <tag>
+                                            <name>threadSafe</name>
+                                        </tag>
+                                    </tags>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <!-- Build source jars and attach them to the project for publishing -->
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

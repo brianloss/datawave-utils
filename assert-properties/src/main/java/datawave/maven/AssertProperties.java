@@ -124,9 +124,8 @@ public class AssertProperties extends AbstractMojo {
 
     /**
      * Fetch the set of strings from the configured filename
-     * @return
-     * @throws MojoExecutionException
-     * @throws IOException
+     * @return the expected property map
+     * @throws MojoExecutionException if there is any problem finding or reading the properties file
      */
     protected Map<String,String> getExpectedPropertyMap() throws MojoExecutionException {
         BufferedReader reader ;
