@@ -4,7 +4,7 @@
 
     <groupId>gov.nsa.datawave.plugins</groupId>
     <artifactId>read-properties</artifactId>
-    <version>2.0.2-fork</version>
+    <version>2.0.3-fork-SNAPSHOT</version>
 
     <packaging>maven-plugin</packaging>
     <name>DataWave Read Properties Plugin</name>
@@ -20,7 +20,7 @@
         <connection>scm:git:https://github.com/brianloss/datawave-utils.git</connection>
         <developerConnection>scm:git:git@github.com:brianloss/datawave-utils.git</developerConnection>
         <url>https://github.com/brianloss/datawave-utils</url>
-      <tag>read-properties_2.0.2-fork</tag>
+      <tag>HEAD</tag>
   </scm>
     <distributionManagement>
         <repository>
